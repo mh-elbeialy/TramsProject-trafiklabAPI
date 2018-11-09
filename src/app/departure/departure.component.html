@@ -1,0 +1,20 @@
+
+<span>Enter station you depart from (*default is 'Mårtensdal' station): </span>
+<input class = "form-control" id = "searchText" type = "text" [(ngModel)] = "searchText" placeholder = "Seach Destination .." (change) ="filter()"  />
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Journey Number</th>
+      <th>Expected Time</th>
+      <th>Destination</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr mdbTableCol *ngFor="let model of departingTrams" id="dest">
+      <td>{{model.journeyNumber}}</td>
+      <td>{{model.expectedDateTime |  date:'MM/dd/yyyy HH:mm:SS'}}</td>
+      <td>{{model.DestinationStationName}}</td>
+    </tr>
+  </tbody>
+</table>
